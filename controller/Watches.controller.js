@@ -29,7 +29,6 @@ const deletefav = async(req,res)=>{
 
 const getfav = async(req,res)=>{
     try{
-        seeddata()
         const create = await watchesModel.find()
         res.status(200).json({
             data:create
