@@ -1,4 +1,4 @@
-const {watchesModel} = require("../models/Watches.model")
+const {watchesModel,seeddata} = require("../models/Watches.model")
 
 const createfav = async(req,res)=>{
     try{
@@ -29,6 +29,7 @@ const deletefav = async(req,res)=>{
 
 const getfav = async(req,res)=>{
     try{
+        seeddata()
         const create = await watchesModel.find()
         res.status(200).json({
             data:create

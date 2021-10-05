@@ -23,11 +23,17 @@ mongoose.connect(`mongodb+srv://yaseen_saeed:ya9981063722@cluster0.ulxvz.mongodb
       data:"sucsess"
   })
   })
-
-  const {getfav,deletefav,updatefav,createfav} = require("./controller/Watches.controller")
+const {seeddata} = require("./models/Watches.model")
+  const {getfav,deletefav,updatefav,createfav} = require("./controller/Watches.controller");
 
 app.post("/createfav",createfav)
 app.get("/getfav",getfav)
+app.get("/seedfav",(req,res)=>{
+  seeddata()
+  res.status(200).json({
+    data:"sucsess"
+})
+})
 app.delete("/deletefav/:id",deletefav)
 app.patch("/updatefav/:id",updatefav)
 
